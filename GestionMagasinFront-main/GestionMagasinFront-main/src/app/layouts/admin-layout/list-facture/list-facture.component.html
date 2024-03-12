@@ -1,0 +1,111 @@
+<app-nav-bar></app-nav-bar>
+<app-side-bar></app-side-bar>
+
+
+<div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+    <div class="page-wrapper">
+        <div class="container-fluid">
+            <!-- <div>
+                <input type="text" [(ngModel)]="nameFilter.montantFacture" placeholder="name">
+                <ul>
+                    <li *ngFor="let facture of listFactures | filterBy: nameFilter">{{ facture.montantFacture }}</li>
+
+
+                    <li *ngIf="(listFactures | filter: searchText).length === 0">No matching elements</li>
+                </ul>
+            </div> -->
+            <div class="row">
+                <!-- column -->
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- title -->
+                            <div class="d-md-flex">
+                                <div>
+                                    <h4 class="card-title">Liste Des Factures</h4>
+                                </div>
+                                <div class="ms-auto">
+                                    <div class="dl">
+                                        <!-- <select class="form-select shadow-none">
+                            <option value="0" selected>Monthly</option>
+                            <option value="1">Daily</option>
+                            <option value="2">Weekly</option>
+                            <option value="3">Yearly</option>
+                        </select> -->
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showForm()"> Add new facture </button>
+
+                                        <!--   <app-add-facture (addEvent)="saveFacture($event)" *ngIf="showFormTemplate" [updateFacture]="inputFacture"> </app-add-facture>
+                                      
+                                        <div class="row" *ngIf="!showFormTemplate">
+                                            <app-facture class="col-md-3" *ngFor="let object of listFacture" [facture]="object" (deleteEvent)="delete($event)" (updateEvent)="updateForm($event)">
+
+                                            </app-facture>
+                                        </div>
+                                    -->
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- title -->
+                            <div class="table-responsive">
+                                <table class="table v-middle">
+                                    <thead>
+                                        <tr class="bg-light">
+                                            <th class="border-top-0">Id</th>
+                                            <th class="border-top-0">MontantRemise</th>
+                                            <th class="border-top-0">Montant</th>
+                                            <th class="border-top-0">Date</th>
+                                            <th class="border-top-0">Active</th>
+                                            <th class="border-top-0">Client</th>
+                                            <th class="border-top-0"> Action </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let facture of listFactures">
+                                            <td>{{facture.idFacture}}</td>
+                                            <td>{{facture.montantRemise}}</td>
+                                            <td>{{facture.montantFacture}}</td>
+                                            <td>{{facture.dateFacture}}</td>
+                                            <td>{{facture.active}}</td>
+                                            <td>{{facture.client.nom}}</td>
+                                            <td>
+
+                                                <button type="button" class="btn btn-warning" (click)="showUpdate(facture.idFacture)"> <i class="far fa-edit"></i>
+                                                    </button>
+                                                <button type="button" class="btn btn-danger mx-3" (click)="deleteFacture(facture.idFacture); $event.stopPropagation()"><i class="fas fa-trash-alt"></i> </button>
+                                                <button type="button" class="btn btn-info " (click)="showDetailList(facture.idFacture)"> <i class="fas fa-info"></i> </button>
+
+
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                                <div *ngIf="showFormTemplate==true">
+                                    <app-add-facture (notif)="afterRecieveData($event)"></app-add-facture>
+
+                                </div>
+
+                                <div *ngIf="showUpd==true">
+                                    <app-update-facture [idF]="id"></app-update-facture>
+
+                                </div>
+                                <div *ngIf="show==true">
+                                    <app-detail-facture [idF]="idDf"></app-detail-facture>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

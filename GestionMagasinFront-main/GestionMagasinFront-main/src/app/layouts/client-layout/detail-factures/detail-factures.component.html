@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+
+                <th>Produit</th>
+                <th>Quantite</th>
+                <th>Prix total</th>
+                <th>Pourcentage Remise</th>
+                <th>Montant Remise</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let f of list">
+
+                <td>
+                    {{f.produit.libelle}}
+                </td>
+                <td>
+                    {{f.qte}}
+                </td>
+                <td>
+                    {{f.prixTotal}}
+                </td>
+                <td>
+                    {{f.pourcentageRemise}}
+                </td>
+                <td>
+                    {{f.montantRemise}}
+                </td>
+
+                <td>
+                    <a> <i class="icon-reorder"></i></a>
+                </td>
+            </tr>
+
+
+
+
+        </tbody>
+    </table>
+</div>
+<app-footer></app-footer>

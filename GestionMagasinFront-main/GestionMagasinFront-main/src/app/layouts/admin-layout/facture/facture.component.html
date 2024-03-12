@@ -1,0 +1,39 @@
+<app-list-facture></app-list-facture>
+<div class="table-responsive">
+    <table class="table v-middle">
+        <thead>
+            <tr class="bg-light">
+                <th class="border-top-0">Id</th>
+                <th class="border-top-0">MontantRemise</th>
+                <th class="border-top-0">Montant</th>
+                <th class="border-top-0">Date</th>
+                <th class="border-top-0">Active</th>
+                <th class="border-top-0">Client</th>
+                <th class="border-top-0"> Action </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let facture of listFactures">
+                <td>{{facture.idFacture}}</td>
+                <td>{{facture.montantRemise}}</td>
+                <td>{{facture.montantFacture}}</td>
+                <td>{{facture.dateFacture}}</td>
+                <td>{{facture.active}}</td>
+                <td>{{facture.client.nom}}</td>
+                <td>
+
+                    <button type="button" class="btn btn-warning" (click)="updateNotif()">Update</button>
+                    <button type="button" class="btn btn-danger mx-3" (click)="deleteNotif()">Remove</button>
+                    <button type="button" class="btn btn-info ">Info</button>
+
+
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+
+</div>

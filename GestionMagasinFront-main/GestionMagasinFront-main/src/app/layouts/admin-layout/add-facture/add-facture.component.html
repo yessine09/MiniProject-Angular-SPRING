@@ -1,0 +1,114 @@
+<!-- <app-nav-bar></app-nav-bar>
+<app-side-bar></app-side-bar>
+<app-list-facture **ngFor="let facture of listFactures"></app-list-facture> -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Facture Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="reset()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body ">
+                <form [formGroup]="formValue">
+                    <!-- {{localForm.submitted}} -->
+                    <!--(ngSubmit)="addFacture(formValue)"-->
+
+                    <div class="form-group mb-3">
+                        <label for="montantFacture" class="form-label">Montant Facture</label>
+
+                        <!-- *ngIf="formValue.get('montantRemise')?.errors && 
+                        formValue.get('montantRemise')?.hasError('required')" -->
+
+                        <input type="text" name="montantFacture" formControlName="montantFacture" class="form-control" [class.is-invalid]="formValue.get('montantFacture')?.touched">
+                        <div class="invalid-feedback" *ngIf="montantFacture?.invalid&&montantFacture?.touched">
+                            <div *ngIf="montantFacture?.errors?.['required']"> montant is required</div>
+                            <div *ngIf="montantFacture?.errors?.['pattern']"> please provid a valid montant</div>
+
+                        </div>
+                    </div>
+
+
+
+                    <!-- <input type="text" id="montantFacture" class="form-control" formControlName="montantFacture" required> -->
+                    <!-- <div *ngIf="montantFacture.invalid && (montantFacture.dirty || montantFacture.touched)" class="alert alert-danger"></div> -->
+                    <!-- <input type="text" (blur)="formValue.controls['montantFacture']?.markAsTouched()" formControlName="montantFacture" class="form-control" id="exampleInputmontant" aria-describedby="emailHelp" min="0"> -->
+                    <!-- <span *ngIf=" !formValue.controls['montantFacture'].valid && formValue.controls['montantFacture']?.touched " class="text-danger">
+                             <span *ngIf="formValue.controls['montantFacture'].errors">Montant facture  required</span>
+                        <span *ngIf="formValue.controls['montantFacture'].errors">Montant facture  required</span>
+                        </span> -->
+
+
+                    <!-- <div class="invalid-feedback">
+                            Montant is required
+                        </div> -->
+                    <!-- 
+                        <div class="alert alert-danger" *ngIf="formValue.montantFacture.invalid && formValue.montantFacture.touched ">
+                            <div *ngIf="formValue.get.('montantFacture')?.errors?.required"> montant is required </div>
+                        </div> -->
+
+
+
+
+                    <div class="form-group mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Montant Remise</label>
+
+                        <!-- [class.is-invalid]="formValue.get('montantRemise')?.invalid " -->
+                        <input type="text" formControlName="montantRemise" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" step="5" [class.is-invalid]="formValue.get('montantRemise')?.touched ">
+
+
+                        <div class="invalid-feedback" *ngIf="montantRemise?.invalid&&montantRemise?.touched">
+                            <div *ngIf="montantRemise?.errors?.['required']"> Remise is required</div>
+                            <div *ngIf="montantRemise?.errors?.['max']">Max Remise is 100 bro</div>
+                            <div *ngIf="montantRemise?.errors?.['min']">Min Remise is 0 bro</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Date Facture</label>
+                        <!-- [class.is-invalid]="formValue.get('dateFacture')?.invalid" -->
+                        <input type="date" formControlName="dateFacture" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [class.is-invalid]="formValue.get('dateFacture')?.touched">
+
+                        <div class="invalid-feedback" *ngIf="dateFacture?.invalid&&dateFacture?.touched">
+                            <div *ngIf="dateFacture?.errors?.['required']"> date is required</div>
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="active">
+                        <label class="form-check-label" for="exampleCheck1">Active</label>
+
+                    </div>
+
+
+                    <div class="form-group mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Name Of client</label>
+                        <!-- [class.is-invalid]="formValue.get('idClient')?.invalid" -->
+                        <select formControlName="idClient" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [class.is-invalid]="formValue.get('idClient')?.invalid&&formValue.get('idClient')?.touched"> 
+                            
+                            <option  class="form-check-input"  *ngFor="let client of list_client "  [value]="client.idClient" selected="selected">{{client.nom}}</option>
+                        </select>
+
+                        <div class="invalid-feedback">
+                            Chose name of client
+                        </div>
+
+                        <!-- <label for="exampleInputEmail1 " class="form-label ">Id Client</label>
+                        <input type="number " formControlName="idClient " class="form-control " id="exampleInputEmail1 " aria-describedby="emailHelp "> -->
+
+                    </div>
+
+
+
+                    <div class="modal-footer ">
+
+                        <button type="button " class="btn btn-primary " [disabled]="!formValue.valid" data-bs-dismiss="modal " (click)="addFacture(formValue)"> <i class="fa fa-database " ></i> Save</button>
+                        <button type="button " class="btn btn-primary " id="reset-btn " (click)="reset() "> <i class="fas fa-sync-alt " data-bs-dismiss="modal "></i>Reset</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

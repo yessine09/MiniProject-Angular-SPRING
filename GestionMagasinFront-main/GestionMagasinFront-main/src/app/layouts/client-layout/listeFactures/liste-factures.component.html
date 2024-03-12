@@ -1,0 +1,55 @@
+<app-header></app-header>
+<div class="latest-news pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6" *ngFor="let facture of listFactures">
+                <div class="single-latest-news">
+
+                    <a href="single-news.html">
+                        <img src="../../assets/front/img/latest-news/news-bg-4.png" width="10px" height="185px" class="card-img-top" alt="...">
+                    </a>
+                    <div class="news-text-box">
+                        <h3><a href="single-news.html" style="color: darkblue; font-size: x-large;">Invoice of Electronic</a></h3>
+                        <p class="blog-meta">
+                            <span class="author"><i class="fas fa-user"></i> Admin</span>
+                            <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+                        </p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" style="color:rgb(250, 6, 55); font-size: large; font: bold; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Montant Facture .$
+                            </li>
+                            <li>{{facture.montantFacture}}</li>
+                            <li class="list-group-item" style="color:rgb(250, 6, 55); font-size: large; font: bold; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Montant Remise .%</li>
+                            <li>{{facture.montantRemise}}</li>
+                            <li class="list-group-item" style="color:rgb(250, 6, 55); font-size: large; font: bold; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Date Facture</li>
+                            <li>{{facture.dateFacture}}</li>
+                            <li class="list-group-item" style="color:rgb(250, 6, 55); font-size: large; font: bold; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Active</li>
+                            <li>{{facture.active}} </li>
+                        </ul>
+                        <br>
+                        <div style="color: saddlebrown; font-size: medium;">Upload facture to pdf
+                            <button class="btn" (click)="pdfExport()">  <i class="fas fa-file-pdf" style="size: 10px;" ></i></button>
+
+                        </div>
+
+                        <!-- <div class="inner" style="margin-left:100%;">
+                            <button class="btn" (click)="pdfExport(1)"><i class="fa fa-file-text-o" aria-hidden="true"></i></button>
+
+                        </div> -->
+
+                        <a [routerLink]="['/listDetail',facture.idFacture]" routerLinkActive="router-link-active" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- <div class="card" style="width: 18rem;">
+            <img src="../../assets/front/img/latest-news/steg.jfif" class="card-img-top" alt="steg.jpeg">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div> -->
+    </div>
+</div>
+<app-footer></app-footer>

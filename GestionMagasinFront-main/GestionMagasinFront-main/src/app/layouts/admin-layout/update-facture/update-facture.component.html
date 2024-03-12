@@ -1,0 +1,9 @@
+<form #f="ngForm">
+    <label>Montant Facture</label>
+    <input type="number" name="montantFacture" [(ngModel)]="facture.montantFacture">
+    <label>Montant Remise</label>
+    <input type="number" name="montantRemise" [(ngModel)]="facture.montantRemise">
+    <label>Date Facture</label>
+    <input type="Date" name="dateFacture" [(ngModel)]="facture.dateFacture">
+    <input type="submit" (click)="updateFacture(facture)">
+</form>
